@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.conorsmine.net</groupId>
   <artifactId>JsonStructureChecker</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>JsonStructureChecker</name>
   <url>http://maven.apache.org</url>
   <dependencies>

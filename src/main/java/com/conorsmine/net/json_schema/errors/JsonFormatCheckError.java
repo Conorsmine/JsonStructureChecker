@@ -1,6 +1,6 @@
-package com.conorsmine.net.formatter.errors;
+package com.conorsmine.net.json_schema.errors;
 
-public class JsonFormatCheckError extends Error{
+public class JsonFormatCheckError extends Error {
     public JsonFormatCheckError() { }
 
     public JsonFormatCheckError(String message) {
