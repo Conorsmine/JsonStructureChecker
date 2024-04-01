@@ -125,6 +125,19 @@ public class SchemaJsonParser {
                         .setOptional(optional)
                         .build());
                 break;
+
+            case GROUP:
+                builder.setKeyAs(name, TagGroup.builder()
+                        .setOptional(optional)
+                        .build(tag.get("group_name").getAsString()));
+                break;
+
+            case ANY:
+                builder.setKeyAs(name, TagAny.create(optional));
+                break;
+
+            default:
+                throw new IllegalStateException("Not implemented yet: " + type);
         }
     }
 
