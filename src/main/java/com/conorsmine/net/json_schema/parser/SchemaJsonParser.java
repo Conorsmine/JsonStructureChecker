@@ -152,7 +152,7 @@ public class SchemaJsonParser {
 
     private static <T> T getOptionalDataOrDefault(JsonObject json, @Nullable String key, Function<JsonElement, T> supplier, T defaultValue) {
         final JsonElement dataJson = json.get(ParserSchema.DATA_STR);
-        if (dataJson == null || !dataJson.isJsonObject()) return defaultValue;
+        if (dataJson == null) return defaultValue;
 
         if (key == null) return supplier.apply(dataJson);
 
