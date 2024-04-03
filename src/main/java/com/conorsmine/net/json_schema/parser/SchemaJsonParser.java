@@ -74,7 +74,7 @@ public class SchemaJsonParser {
             case S_FLT:
                 builder.setKeyAs(name, TagNumeric.builder(type)
                         .setMinValue(getOptionalDataOrDefault(tag, "min_value", JsonElement::getAsLong, (Long) null))
-                        .setMaxValue(getOptionalDataOrDefault(tag, "min_value", JsonElement::getAsLong, (Long) null))
+                        .setMaxValue(getOptionalDataOrDefault(tag, "max_value", JsonElement::getAsLong, (Long) null))
                         .setOptional(optional)
                         .build());
                 break;
