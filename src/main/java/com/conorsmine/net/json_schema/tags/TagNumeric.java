@@ -44,7 +44,7 @@ public class TagNumeric<T extends Number> extends JsonTag {
          * Sets the minimum value for the number.
          * @param minValue The smallest number allowed
          */
-        public Builder<T> setMinValue(T minValue) {
+        public Builder<T> setMinValue(@Nullable T minValue) {
             this.minValue = minValue;
             return this;
         }
@@ -53,7 +53,7 @@ public class TagNumeric<T extends Number> extends JsonTag {
          * Sets the maximum value for the number.
          * @param maxValue The largest number allowed
          */
-        public Builder<T> setMaxValue(T maxValue) {
+        public Builder<T> setMaxValue(@Nullable T maxValue) {
             this.maxValue = maxValue;
             return this;
         }
@@ -63,7 +63,7 @@ public class TagNumeric<T extends Number> extends JsonTag {
          * @param minValue The smallest number allowed
          * @param maxValue The largest number allowed
          */
-        public Builder<T> setRange(T minValue, T maxValue) {
+        public Builder<T> setRange(@Nullable T minValue, @Nullable T maxValue) {
             setMinValue(minValue).setMaxValue(maxValue);
             return this;
         }
@@ -92,6 +92,7 @@ public class TagNumeric<T extends Number> extends JsonTag {
             return false;
         }
 
+        if (minValue == null || maxValue == null) return false;
         if (!(tag.getAsNumber().doubleValue() >= minValue.doubleValue() && tag.getAsNumber().doubleValue() <= maxValue.doubleValue())) {
             errorBuilder.addError(path, JsonIncorrectSizeError.getOutsideRange(path, minValue, maxValue));
             return false;
